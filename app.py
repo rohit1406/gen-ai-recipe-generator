@@ -7,7 +7,7 @@ load_dotenv()
 # which model to use
 deployment_name = "gpt-4o-mini"
 # change this to get more textual output as per your needs
-max_tokens = 100
+max_tokens = 1000
 # change this to get more creative/varying output as per your needs where 1 being the most variable and 0 being the most deterministic
 temperature = 0.5
 
@@ -18,7 +18,7 @@ ingredients = input("List of ingredients (for example: chicken, potatoes, carrot
 filter = input("Filter (for example: vegetarian, vegan, gluten-free): ")
 # Interpolate the prompt with number of recipes and ingredients
 prompt = f"Show me {no_recipes} recipes for a dish with following ingredients: {ingredients}" \
-f"Per recipe, list all ingredients used, no instructions, and no {filter}." 
+f"Per recipe, list all ingredients used, and no {filter}." 
 messages = [{"role": "user", "content": prompt}]
 
 # Make Completion
