@@ -1,0 +1,34 @@
+# This is a sample .gitignore file for a project
+# It specifies files and directories that should be ignored by Git
+
+# Log and temporary files
+*.log
+*.tmp  # Temporary files
+*.bak  # Backup files
+
+# Operating system files
+.DS_Store # macOS system file
+.Thumbs.db # Windows system file
+
+# IDE and editor specific files
+.idea/ # JetBrains IDEs (IntelliJ, PyCharm, etc.)
+.vscode/ # Visual Studio Code settings
+.project/ # Generic project files (Eclipse)
+.settings/ # Generic settings files (Eclipse)
+
+# Environment and secret files
+.env.local # Local environment variables file
+.env # Environment variables file
+config.json # Configuration files that may contain sensitive information
+
+# Build artifacts
+# Front end and back end build outputs
+dist/
+build/
+target/ # Java and other compiled language builds
+
+# Dependencies: package management systems creates directories for installed libraries which should not be tracked
+node_modules/ # Node.js dependencies
+vendor/ # PHP Composer dependencies
+.venv/ # Python virtual environment
+venvs/ # Python virtual environments
