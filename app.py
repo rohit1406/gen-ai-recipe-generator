@@ -1,12 +1,20 @@
 from dotenv import load_dotenv
-from openai import OpenAI
+import openai
 
-# Load environment variables from .env file
+# Load environment variables from .env file:: OPENAI_API_KEY, OPENAI_API_TYPE, OPENAI_API_VERSION
 load_dotenv()
 
-client = OpenAI()
-response = client.responses.create(
-    model="gpt-4o-mini",
-    input="Once upon a time there was a"
+deployment_name = "gpt-4o-mini"
+
+# Add your completion code
+prompt = "Complete the following: Once upon a time there was a"
+messages = [{"role": "user", "content": prompt}]
+
+# Make Completion
+completion = openai.chat.completions.create(
+    model=deployment_name,
+    messages=messages
 )
-print(response.output_text)
+
+# print the response
+print(completion.choices[0].message.content)
