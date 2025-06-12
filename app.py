@@ -4,8 +4,11 @@ import openai
 # Load environment variables from .env file: OPENAI_API_KEY, OPENAI_API_TYPE, OPENAI_API_VERSION
 load_dotenv()
 
+# which model to use
 deployment_name = "gpt-4o-mini"
+# change this to get more textual output as per your needs
 max_tokens = 100
+# change this to get more creative/varying output as per your needs where 1 being the most variable and 0 being the most deterministic
 temperature = 0.5
 
 # Add your completion code
