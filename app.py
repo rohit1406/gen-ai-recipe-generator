@@ -5,6 +5,8 @@ import openai
 load_dotenv()
 
 deployment_name = "gpt-4o-mini"
+max_tokens = 100
+temperature = 0.5
 
 # Add your completion code
 # Number of recipes to generate
@@ -19,8 +21,27 @@ messages = [{"role": "user", "content": prompt}]
 # Make Completion
 completion = openai.chat.completions.create(
     model=deployment_name,
-    messages=messages
+    messages=messages,
+    max_tokens=max_tokens,
+    temperature=temperature
 )
 
-# print the response
+# Print the result
+print(completion.choices[0].message.content)
+
+# Create a new prompt with the result from the previous completion
+old_prompt_result= completion.choices[0].message.content
+prompt = "Produce a shopping list for the generated recipes and please don't include the ingredients that I already have."
+
+new_prompt = f"{old_prompt_result} {prompt}"
+messages = [{"role": "user", "content": new_prompt}]
+completion = openai.chat.completions.create(
+    model=deployment_name,
+    messages=messages,
+    max_tokens=max_tokens,
+    temperature=temperature
+)
+
+# Print the result
+print("Shopping List:")
 print(completion.choices[0].message.content)
