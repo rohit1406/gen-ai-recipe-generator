@@ -28,3 +28,8 @@ pip install dotenv (To load environment variables)
 ### Prerequisites
 1. Python (version 3.13.3 used for this application)
 2. Any text editor or Visual Studio Code or any preferred IDE
+
+### Possible Challenges and their solutions
+1. Issue: 'virtualenv' won't activate on Windows while creating virtual environment
+Error Message: "cannot be loaded because the execution of scripts is disabled on this system".
+Solution: Execute this Command -> Set-ExecutionPolicy Unrestricted -Force
